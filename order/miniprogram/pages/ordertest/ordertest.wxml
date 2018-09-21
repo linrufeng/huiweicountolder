@@ -1,0 +1,25 @@
+<!--miniprogram/pages/ordertest/ordertest.wxml-->
+<view class="swaper">
+
+<view class='h-t'>回味烘焙-结单页</view>
+<view wx:for="{{choseGoods}}" class="list-item">
+    <view class="list">
+    <picker  data-id="{{item.id}}"  bindchange="bindPickerChange" value="{{index}}" range="{{goods.array}}">
+      <view class="picker">
+        请选择种类：{{goods.array[index]}}
+      </view>
+    </picker>
+     </view>
+    <view class="list">
+      请输入数量: <input data-id="{{item.id}}" class='inNum' type="number" value="{{item.num}}"></input> 
+    </view>
+    <button data-id="{{item.id}}" class='delet'>删除</button>
+</view>
+<button bindtap="addGoods">添加 </button>
+<view class="order">
+  <view class="msg"> 
+    总售价:<span>{{price}}</span>
+  </view>
+  <button bindtap='upload'>结算</button>
+</view>
+</view>
